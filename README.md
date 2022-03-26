@@ -1,2 +1,3 @@
-# PactExample
-Some examples for Pact.Net and WireMock.Net
+# PactExamples
+
+This project shows some examples for Pact.Net and WireMock.Net
