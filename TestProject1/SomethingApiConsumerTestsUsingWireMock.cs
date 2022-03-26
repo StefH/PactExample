@@ -33,10 +33,11 @@ public class SomethingApiConsumerTestsUsingWireMock
                     .WithHeader("Content-Type", "application/json; charset=utf-8")
                     .WithBodyAsJson(new
                     {
-                        Id = "tester",
+                        Id = "{{request.PathSegments.[0]}}",
                         FirstName = "Totally",
                         LastName = "Awesome"
                     })
+                    .WithTransformer()
             );
 
         // Act
