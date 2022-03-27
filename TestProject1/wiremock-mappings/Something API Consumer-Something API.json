@@ -1,0 +1,44 @@
+{
+  "Guid": "41c298bd-15e5-4581-a2fd-a988aaa8696e",
+  "Title": "Something API Consumer-Something API",
+  "Request": {
+    "Path": {
+      "Matchers": [
+        {
+          "Name": "WildcardMatcher",
+          "Pattern": "/tester",
+          "IgnoreCase": false
+        }
+      ]
+    },
+    "Methods": [
+      "GET"
+    ],
+    "Headers": [
+      {
+        "Name": "Accept",
+        "Matchers": [
+          {
+            "Name": "WildcardMatcher",
+            "Pattern": "application/json",
+            "IgnoreCase": true
+          }
+        ]
+      }
+    ]
+  },
+  "Response": {
+    "StatusCode": 200,
+    "BodyAsJson": {
+      "Id": "{{request.PathSegments.[0]}}",
+      "FirstName": "Totally",
+      "LastName": "Awesome"
+    },
+    "UseTransformer": true,
+    "TransformerType": "Handlebars",
+    "TransformerReplaceNodeOptions": "None",
+    "Headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    }
+  }
+}

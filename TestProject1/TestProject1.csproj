@@ -26,4 +26,8 @@
     <ProjectReference Include="..\ClientClassLibrary\ClientClassLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wiremock-mappings\" />
+  </ItemGroup>
+
 </Project>

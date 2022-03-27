@@ -1,3 +1,4 @@
+using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using ClientClassLibrary;
@@ -27,6 +28,7 @@ public class SomethingApiConsumerTestsUsingWireMock
                 .WithPath("/tester")
                 .WithHeader("Accept", "application/json")
             )
+            .WithTitle("Something API Consumer-Something API")
             .RespondWith(
                 Response.Create()
                     .WithStatusCode(HttpStatusCode.OK)
@@ -47,5 +49,7 @@ public class SomethingApiConsumerTestsUsingWireMock
 
         // Assert
         Assert.Equal("tester", something.Id);
+
+        _server.SaveStaticMappings(Path.Combine("..", "..", "..", "wiremock-mappings"));
     }
 }
