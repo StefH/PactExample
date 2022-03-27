@@ -11,18 +11,12 @@ namespace TestProject1;
 
 public class SomethingApiConsumerTestsUsingWireMock
 {
-    private readonly WireMockServer _server;
-
-    public SomethingApiConsumerTestsUsingWireMock()
-    {
-        _server = WireMockServer.Start();
-    }
-
     [Fact]
     public async Task GetSomething_WhenTheTesterSomethingExists_ReturnsTheSomething()
     {
         // Arrange
-        _server
+        var server = WireMockServer.Start();
+        server
             .Given(Request.Create()
                 .UsingGet()
                 .WithPath("/tester")
@@ -43,13 +37,14 @@ public class SomethingApiConsumerTestsUsingWireMock
             );
 
         // Act
-        var client = RestEase.RestClient.For<ISomethingApi>(_server.Urls[0]);
+        var client = RestEase.RestClient.For<ISomethingApi>(server.Urls[0]);
 
         var something = await client.GetSomethingAsync("tester");
 
         // Assert
         Assert.Equal("tester", something.Id);
 
-        _server.SaveStaticMappings(Path.Combine("..", "..", "..", "wiremock-mappings"));
+        // Save mapping to folder
+        server.SaveStaticMappings(Path.Combine("..", "..", "..", "wiremock-mappings"));
     }
 }
