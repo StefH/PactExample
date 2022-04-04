@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="pacts\" />
     <Folder Include="wiremock-mappings\" />
   </ItemGroup>
 

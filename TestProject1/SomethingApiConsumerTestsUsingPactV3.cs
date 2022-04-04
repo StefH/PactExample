@@ -7,14 +7,14 @@ using Xunit;
 
 namespace TestProject1;
 
-public class SomethingApiConsumerTestsUsingPact
+public class SomethingApiConsumerTestsUsingPactV3
 {
     private readonly IPactBuilderV3 _pactBuilder;
 
-    public SomethingApiConsumerTestsUsingPact()
+    public SomethingApiConsumerTestsUsingPactV3()
     {
         // Use default pact directory ..\..\pacts and default log directory ..\..\logs
-        var pact = Pact.V3("Something API Consumer", "Something API");
+        var pact = Pact.V3("Something API Consumer", "Something API V3");
 
         _pactBuilder = pact.UsingNativeBackend();
     }
