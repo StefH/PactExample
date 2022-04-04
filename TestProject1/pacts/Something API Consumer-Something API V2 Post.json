@@ -1,0 +1,47 @@
+{
+  "consumer": {
+    "name": "Something API Consumer"
+  },
+  "interactions": [
+    {
+      "description": "A POST request to add the something",
+      "providerState": "Post something",
+      "request": {
+        "body": {
+          "DataNumber": 123,
+          "DataString": "str"
+        },
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/tester"
+      },
+      "response": {
+        "body": {
+          "DataNumber": 123,
+          "DataString": "str",
+          "Id": "1000"
+        },
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pactRust": {
+      "ffi": "0.2.2",
+      "mockserver": "0.8.7",
+      "models": "0.2.7"
+    },
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  },
+  "provider": {
+    "name": "Something API V2 Post"
+  }
+}
