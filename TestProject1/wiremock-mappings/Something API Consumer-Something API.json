@@ -1,5 +1,5 @@
 {
-  "Guid": "d8d0f37d-30d3-4ac5-8798-e4f566f73cda",
+  "Guid": "bbf0d825-c386-4acc-b413-c27b51b9da6b",
   "Title": "Something API Consumer-Something API",
   "Request": {
     "Path": {
@@ -22,6 +22,26 @@
             "Name": "WildcardMatcher",
             "Pattern": "application/json",
             "IgnoreCase": true
+          }
+        ]
+      }
+    ],
+    "Params": [
+      {
+        "Name": "q1",
+        "Matchers": [
+          {
+            "Name": "ExactMatcher",
+            "Pattern": "test"
+          }
+        ]
+      },
+      {
+        "Name": "q2",
+        "Matchers": [
+          {
+            "Name": "ExactMatcher",
+            "Pattern": "ok"
           }
         ]
       }

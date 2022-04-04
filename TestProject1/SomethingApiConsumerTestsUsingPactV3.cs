@@ -28,7 +28,9 @@ public class SomethingApiConsumerTestsUsingPactV3
             .Given("There is a something with id 'tester'")
             .WithRequest(HttpMethod.Get, "/tester")
             .WithHeader("Accept", "application/json")
-            
+            .WithQuery("q1", "test")
+            .WithQuery("q2", "ok")
+
             .WillRespond()
             .WithStatus(HttpStatusCode.OK)
             .WithHeader("Content-Type", "application/json; charset=utf-8")
@@ -44,7 +46,7 @@ public class SomethingApiConsumerTestsUsingPactV3
             // Act
             var client = RestEase.RestClient.For<ISomethingApi>(ctx.MockServerUri);
 
-            var something = await client.GetSomethingAsync("tester");
+            var something = await client.GetSomethingAsync("tester", "test", "ok");
 
             // Assert
             Assert.Equal("tester", something.Id);

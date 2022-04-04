@@ -8,6 +8,6 @@ namespace ClientClassLibrary
     {
         [Get("{id}")]
         [Header("Accept", "application/json")]
-        public Task<SomeThing> GetSomethingAsync([Path] string id, CancellationToken cancellationToken = default);
+        public Task<SomeThing> GetSomethingAsync([Path] string id, [Query] string q1, [Query] string q2, CancellationToken cancellationToken = default);
     }
 }

@@ -11,7 +11,8 @@
           "Accept": "application/json"
         },
         "method": "GET",
-        "path": "/tester"
+        "path": "/tester",
+        "query": "q1=test&q2=ok"
       },
       "response": {
         "body": {

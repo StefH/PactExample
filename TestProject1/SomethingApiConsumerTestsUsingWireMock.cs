@@ -20,6 +20,8 @@ public class SomethingApiConsumerTestsUsingWireMock
             .Given(Request.Create()
                 .UsingGet()
                 .WithPath("/tester")
+                .WithParam("q1", "test")
+                .WithParam("q2", "ok")
                 .WithHeader("Accept", "application/json")
             )
             .WithTitle("Something API Consumer-Something API")
@@ -39,7 +41,7 @@ public class SomethingApiConsumerTestsUsingWireMock
         // Act
         var client = RestEase.RestClient.For<ISomethingApi>(server.Urls[0]);
 
-        var something = await client.GetSomethingAsync("tester");
+        var something = await client.GetSomethingAsync("tester", "test", "ok");
 
         // Assert
         Assert.Equal("tester", something.Id);
